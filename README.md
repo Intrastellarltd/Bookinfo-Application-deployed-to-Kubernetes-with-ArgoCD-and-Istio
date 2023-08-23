@@ -151,7 +151,7 @@ k exec "$(k get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c 
 
 ### Open the application to outside traffic
 
-The Bookinfo application is deployed but not accessible from the outside. To make it accessible, Istio Ingress Gateway needs to be created, which maps a path to a route at the edge of your mesh.
+The Bookinfo application is deployed but not accessible from the outside. To make it accessible, Istio Ingress Gateway needs to be created, which maps a path to a route at the edge of the mesh.
 
 #### Associate this application with the Istio gateway:
 
@@ -244,7 +244,7 @@ istioctl dashboard kiali
 
 [Grafana k6](https://k6.io/docs/) is an open-source load testing tool that makes performance testing easy and productive for engineering teams. k6 is free, developer-centric, and extensible.
 
-The reliability and performance of your systems can be tested using k6 to catch performance regressions and problems earlier. k6 will helps build resilient and performant applications that scale.
+The reliability and performance of the systems; they can be tested using k6 to catch performance regressions and problems earlier. k6 will helps build resilient and performant applications that scale.
 
 #### Paste the following code in a file named "average-load.js"
 
