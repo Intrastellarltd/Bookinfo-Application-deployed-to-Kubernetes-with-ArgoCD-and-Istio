@@ -111,7 +111,7 @@ istioctl install --set profile=demo -y
 
 ### Deploying the application
 
-To run the sample with Istio requires no changes to the application itself. Instead, you simply need to configure and run the services in an Istio-enabled environment, with Envoy sidecars injected along side each service. The resulting deployment will look like this:
+To run the sample with Istio requires no changes to the application itself. Instead, to run the services in an Istio-enabled environment the services need to be configured with Envoy sidecars injected along side each service. The resulting deployment will look like this:
 
 [Application with Istio](https://istio.io/latest/docs/examples/bookinfo/withistio.svg)
 
@@ -119,7 +119,7 @@ All of the microservices will be packaged with an Envoy sidecar that intercepts 
 
 The default Istio installation uses automatic sidecar injection. Label the namespace that will host the application with istio-injection=enabled.
 
-Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when you deploy your application later.
+Add a namespace label to instruct Istio to automatically inject Envoy sidecar proxies when application are deployed afterwards.
 
 ```shell
 k label namespace default istio-injection=enabled
@@ -151,7 +151,7 @@ k exec "$(k get pod -l app=ratings -o jsonpath='{.items[0].metadata.name}')" -c 
 
 ### Open the application to outside traffic
 
-The Bookinfo application is deployed but not accessible from the outside. To make it accessible, you need to create an Istio Ingress Gateway, which maps a path to a route at the edge of your mesh.
+The Bookinfo application is deployed but not accessible from the outside. To make it accessible, Istio Ingress Gateway needs to be created, which maps a path to a route at the edge of your mesh.
 
 #### Associate this application with the Istio gateway:
 
@@ -215,13 +215,13 @@ Run the following command to retrieve the external address of the Bookinfo appli
 echo "http://$GATEWAY_URL/productpage"
 ```
 
-Paste the output from the previous command into your web browser and confirm that the Bookinfo product page is displayed.
+Paste the output from the previous command into a web browser and confirm that the Bookinfo product page is displayed.
 
 ---
 
 ### View the dashboard
 
-Istio integrates with several different telemetry applications. These can help you gain an understanding of the structure of your service mesh, display the topology of the mesh, and analyze the health of your mesh.
+Istio integrates with several different telemetry applications. These provide an understanding of the structure of the service mesh, display the topology of the mesh, and analyze the health of the mesh.
 
 Use the following instructions to deploy the Kiali dashboard, along with Prometheus, Grafana, and Jaeger.
 
@@ -244,7 +244,7 @@ istioctl dashboard kiali
 
 [Grafana k6](https://k6.io/docs/) is an open-source load testing tool that makes performance testing easy and productive for engineering teams. k6 is free, developer-centric, and extensible.
 
-Using k6, you can test the reliability and performance of your systems and catch performance regressions and problems earlier. k6 will help you to build resilient and performant applications that scale.
+The reliability and performance of your systems can be tested using k6 to catch performance regressions and problems earlier. k6 will helps build resilient and performant applications that scale.
 
 #### Paste the following code in a file named "average-load.js"
 
